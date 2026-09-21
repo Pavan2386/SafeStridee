@@ -180,3 +180,14 @@ SafeStride/
 **SafeStride – Real-Time Scene Intelligence and Contextual Navigation for the Visually Impaired**
 
 Developed as an academic project using Python, AI, computer vision, GPS, and web technologies.
+
+## SafeStride
+
+SafeStride is a safety and navigation assistance project.
+
+## Main Modules
+
+- Navigation
+- AI Scene Analysis
+- Backend Server
+- Automated Testing
