@@ -64,10 +64,16 @@ class AIEngine:
                 prompt
             ])
 
-            if response and response.text:
-                return response.text.strip()
-            return "Path appears clear."
+           if response and response.text:
+    result = response.text.strip()
 
+    # Keep the spoken response concise
+    if len(result) > 500:
+        result = result[:500] + "..."
+
+    return result
+
+return "Path appears clear."
         except Exception as e:
             print(f"[AIEngine] Error: {e}")
             if "429" in str(e):
