@@ -191,3 +191,33 @@ SafeStride is a safety and navigation assistance project.
 - AI Scene Analysis
 - Backend Server
 - Automated Testing
+=======
+## System Workflow
+
+1. User logs into the SafeStride application.
+2. The camera captures the surrounding scene.
+3. AI analyzes the captured image and generates a natural-language description.
+4. The system identifies possible obstacles and hazards.
+5. For outdoor navigation, the navigation engine obtains walking directions.
+6. Voice output communicates important information to the user.
+7. Caregivers can monitor the user's navigation status through the backend.
+
+## Main Modules
+
+- **AI Scene Analysis** – Analyzes camera frames and describes the surrounding environment.
+- **Navigation Engine** – Provides walking directions using Google Maps Directions API.
+- **Voice Assistance** – Communicates navigation and safety information.
+- **Backend Server** – Handles application-related server functionality.
+- **Caregiver Monitoring** – Supports monitoring of the user's navigation status.
+
+## Technologies Used
+
+- Python
+- Kivy
+- OpenCV
+- Google Gemini
+- Google Maps Directions API
+- Flask
+- MySQL
+- Voice Assistance
+
