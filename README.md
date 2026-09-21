@@ -180,3 +180,14 @@ SafeStride/
 **SafeStride – Real-Time Scene Intelligence and Contextual Navigation for the Visually Impaired**
 
 Developed as an academic project using Python, AI, computer vision, GPS, and web technologies.
+
+## Continuous Integration
+
+SafeStride uses Jenkins for continuous integration.
+
+The Jenkins build:
+1. Checks out the main branch.
+2. Installs project dependencies.
+3. Checks Python files for syntax errors.
+4. Runs automated tests.
+5. Reports the build result.
