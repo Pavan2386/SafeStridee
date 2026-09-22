@@ -6,6 +6,17 @@ class NavEngine:
         self.key = maps_key
         self.url = "https://maps.googleapis.com/maps/api/directions/json"
 
+    def set_destination(self, destination):
+        self.destination = destination
+
+    def get_destination(self):
+        return self.destination
+
+    def navigation_status(self):
+        if self.destination:
+            return f"Navigating to {self.destination}"
+        return "No destination set"
+
     def get_step_directions(self, origin_lat_lon, destination):
         params = {
             'origin': origin_lat_lon, 
