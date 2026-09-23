@@ -249,3 +249,7 @@ The CI process performs the following steps:
 "C:\Users\Pavan\AppData\Local\Programs\Python\Python311\python.exe" -m py_compile server.py
 
 "C:\Users\Pavan\AppData\Local\Programs\Python\Python311\python.exe" -m pytest
+
+## Conflict Test
+
+This section was added directly on the main branch.
