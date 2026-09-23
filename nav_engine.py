@@ -1,10 +1,12 @@
 import requests
 import re
 
+
 class NavEngine:
     def __init__(self, maps_key):
         self.key = maps_key
         self.url = "https://maps.googleapis.com/maps/api/directions/json"
+        self.destination = None
 
     def set_destination(self, destination):
         self.destination = destination
@@ -16,7 +18,6 @@ class NavEngine:
         if self.destination:
             return f"Navigating to {self.destination}"
         return "No destination set"
-
     def get_step_directions(self, origin_lat_lon, destination):
         params = {
             'origin': origin_lat_lon, 
