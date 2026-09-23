@@ -49,6 +49,13 @@ SOS_EMAIL_PASS = os.environ.get("SOS_EMAIL_PASS",  "")
 
 # ── Flask app + CORS (so the React web app can call this server) ──────────────
 app = Flask(__name__)
+@app.route("/health", methods=["GET"])
+def health_check():
+    return {
+        "status": "running",
+        "service": "SafeStride backend", 
+	"version": "1.0"
+    }, 200
 CORS(app)   # allows requests from any origin (your Netlify URL, localhost, etc.)
 
 # ── AI engine — loaded once at startup ───────────────────────────────────────
