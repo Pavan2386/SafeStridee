@@ -53,7 +53,8 @@ app = Flask(__name__)
 def health_check():
     return {
         "status": "running",
-        "service": "SafeStride backend"
+        "service": "SafeStride backend", 
+	"version": "1.0"
     }, 200
 CORS(app)   # allows requests from any origin (your Netlify URL, localhost, etc.)
 
