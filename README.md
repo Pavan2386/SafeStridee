@@ -221,3 +221,31 @@ SafeStride is a safety and navigation assistance project.
 - MySQL
 - Voice Assistance
 
+## Jenkins CI
+
+SafeStride uses Jenkins for continuous integration and automated validation of the project.
+
+### Jenkins Pipeline
+
+The Jenkins job automatically checks the latest code from the `main` branch.
+
+The CI process performs the following steps:
+
+1. Checkout the latest code from GitHub.
+2. Install Python dependencies from `requirements.txt`.
+3. Compile the main Python modules.
+4. Run the automated test suite using pytest.
+5. Validate the deployment configuration.
+
+### Jenkins Build Commands
+
+```text
+"C:\Users\Pavan\AppData\Local\Programs\Python\Python311\python.exe" -m pip install -r requirements.txt
+
+"C:\Users\Pavan\AppData\Local\Programs\Python\Python311\python.exe" -m py_compile ai_engine.py
+
+"C:\Users\Pavan\AppData\Local\Programs\Python\Python311\python.exe" -m py_compile nav_engine.py
+
+"C:\Users\Pavan\AppData\Local\Programs\Python\Python311\python.exe" -m py_compile server.py
+
+"C:\Users\Pavan\AppData\Local\Programs\Python\Python311\python.exe" -m pytest
