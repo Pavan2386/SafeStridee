@@ -252,4 +252,5 @@ The CI process performs the following steps:
 
 ## Conflict Test
 
-This section was added from the conflict branch.
+This section demonstrates a README merge conflict.
+The conflict was resolved by combining the changes from the feature branch and main branch.
