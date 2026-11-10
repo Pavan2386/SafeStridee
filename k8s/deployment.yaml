@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: safestridee
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: safestridee
+  template:
+    metadata:
+      labels:
+        app: safestridee
+    spec:
+      containers:
+        - name: safestridee
+          image: safestridee-safestridee:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8181
+          env:
+            - name: PORT
+              value: "8181"
+          envFrom:
+            - secretRef:
+                name: safestridee-secrets
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8181
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8181
+            initialDelaySeconds: 20
+            periodSeconds: 10
