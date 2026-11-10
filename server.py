@@ -60,7 +60,7 @@ CORS(app)   # allows requests from any origin (your Netlify URL, localhost, etc.
 
 # ── AI engine — loaded once at startup ───────────────────────────────────────
 ai = AIEngine(GEMINI_KEY)
-print(f"[Server] AIEngine loaded with Gemini key: {GEMINI_KEY[:8]}...")
+print(f"[Server] AIEngine loaded. Gemini key configured: {bool(GEMINI_KEY)}")
 
 # ── In-memory location store: {{ userId: [{{lat, lon, timestamp}}, ...] }} ───
 location_store = {}
@@ -417,8 +417,8 @@ if __name__ == "__main__":
     print("=" * 60)
     print(f"  Local URL    : http://localhost:{port}")
     print(f"  Portal       : http://localhost:{port}/portal")
-    print(f"  Gemini key   : {GEMINI_KEY[:8]}...")
-    print(f"  Maps key     : {MAPS_KEY[:8]}...")
+    print(f"  Gemini key configured : {bool(GEMINI_KEY)}")
+    print(f"  Maps key configured   : {bool(MAPS_KEY)}")
     print(f"  SOS from     : {SOS_EMAIL_FROM}")
     print(f"  Users file   : {USERS_FILE}")
     print("=" * 60)

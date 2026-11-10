@@ -1,0 +1,12 @@
+
+services:
+  safestridee:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: safestridee-app
+    ports:
+      - "8181:8181"
+    env_file:
+      - .env
+    restart: unless-stopped
