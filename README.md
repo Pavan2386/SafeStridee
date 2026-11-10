@@ -254,3 +254,84 @@ The CI process performs the following steps:
 
 This section demonstrates a README merge conflict.
 The conflict was resolved by combining the changes from the feature branch and main branch.
+
+## Kubernetes Deployment
+
+SafeStridee is deployed using Kubernetes with Minikube for local container orchestration.
+
+### Technologies Used
+- Kubernetes
+- Minikube
+- Docker
+- kubectl
+
+### Kubernetes Configuration
+
+The `k8s` directory contains the following configuration files:
+
+- `deployment.yaml` – Defines the SafeStridee application deployment, container image, environment variables, and health probes.
+- `service.yaml` – Exposes the application through a Kubernetes NodePort service.
+
+### Deployment Steps
+
+1. Start the Minikube cluster:
+
+   ```bash
+   minikube start --driver=docker
+   ```
+
+2. Load the Docker image into Minikube:
+
+   ```bash
+   minikube image load safestridee-safestridee:latest
+   ```
+
+3. Create the Kubernetes Secret from the local `.env` file:
+
+   ```bash
+   kubectl create secret generic safestridee-secrets --from-env-file=.env
+   ```
+
+4. Deploy the application:
+
+   ```bash
+   kubectl apply -f k8s/deployment.yaml
+   ```
+
+5. Create the Kubernetes Service:
+
+   ```bash
+   kubectl apply -f k8s/service.yaml
+   ```
+
+6. Verify the deployment:
+
+   ```bash
+   kubectl get deployments
+   kubectl get pods
+   kubectl get services
+   ```
+
+7. Access the application:
+
+   ```bash
+   minikube service safestridee-service --url
+   ```
+
+### Health Check
+
+The application health endpoint is:
+
+```text
+/health
+```
+
+It returns the backend service status and version.
+
+### Deployment Features
+
+- Containerized application deployment.
+- Kubernetes Deployment with one replica.
+- NodePort service for external access.
+- Kubernetes Secret for environment configuration.
+- Readiness and liveness probes for health monitoring.
