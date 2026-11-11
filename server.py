@@ -53,7 +53,7 @@ app = Flask(__name__)
 def health_check():
     return {
         "status": "running",
-        "service": "SafeStride backend", 
+        "service": "SafeStride backend",
 	"version": "1.0"
     }, 200
 CORS(app)   # allows requests from any origin (your Netlify URL, localhost, etc.)
@@ -309,16 +309,16 @@ def log_location():
     lat   = data.get("lat", 0.0)
     lon   = data.get("lon", 0.0)
     entry = {"lat": lat, "lon": lon, "timestamp": datetime.now().isoformat()}
-    
+
     locations = load_locations()
     locations.setdefault(uid, []).insert(0, entry)
     locations[uid] = locations[uid][:50]
     save_locations(locations)
-    
+
     # Also keep in memory for fast reads
     location_store.setdefault(uid, []).insert(0, entry)
     location_store[uid] = location_store[uid][:50]
-    
+
     print(f"[Track] {uid} → lat={lat}, lon={lon}")
     return jsonify(entry), 200
 
@@ -339,11 +339,13 @@ def list_users():
 # ════════════════════════════════════════════════════════════════════════════════
 # CAREGIVER PORTAL  (unchanged from your original server.py)
 # ════════════════════════════════════════════════════════════════════════════════
+@app.route('/')
 @app.route('/app')
 def webapp():
     return send_from_directory('.', 'safestride.html')
-@app.route("/")
-@app.route("/portal")
+
+
+@app.route('/portal')
 def portal():
     return """
 <!DOCTYPE html>

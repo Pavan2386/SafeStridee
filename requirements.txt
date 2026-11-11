@@ -6,3 +6,4 @@ numpy<2
 requests
 python-dotenv
 pytest
+selenium==4.51.0
